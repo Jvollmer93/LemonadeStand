@@ -11,6 +11,7 @@ namespace Program.cs
         private double willingnessToBuy;
         private int customerSatisfaction = 100;//initial overall satisfaction 100%
         Random rnd = new Random();
+
         public double WillingnessToBuy
         {
             get { return willingnessToBuy; }
@@ -21,13 +22,13 @@ namespace Program.cs
             get { return customerSatisfaction; }
             set { customerSatisfaction = value; }
         }
-        public void DetermineWillingness(int satisfaction, int temp, int forecast)
+        public void DetermineWillingness(int temperature, int forecastValue)
         {
             //(satisfaction + temp + value for forecast)/3
             //include price
-            willingnessToBuy = (satisfaction + temp + forecast)/3;
+            willingnessToBuy = (temperature + forecastValue)/2;
         }
-        public void ChangeSatisfaction()
+       /* public void ChangeSatisfaction()
         {
             int randomNumber = rnd.Next(0, 2);
             if(randomNumber == 1)
@@ -48,7 +49,7 @@ namespace Program.cs
             {
                 customerSatisfaction = 0;
             }
-        }
+        }*/
         public bool DecideIfBuying()
         {
             int randomNumber = rnd.Next(1,101);

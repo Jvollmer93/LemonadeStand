@@ -13,6 +13,7 @@ namespace Program.cs
         private int numIceCubes;
         private int numCups;
         private double playerMoney;
+
         public int NumLemons
         {
             get { return numLemons; }
@@ -90,6 +91,8 @@ namespace Program.cs
         {
             Console.WriteLine("Sugar : " + numSugar + ", Ice : " + numIceCubes + ", Lemons : " + numLemons + ", Cups : " + numCups + ".");
             Console.WriteLine("Player money remaining : " + playerMoney);
+            Console.ReadLine();
+            Console.Clear();
         }
         public bool MakeSureNotOutOfStock()
         {
@@ -123,6 +126,11 @@ namespace Program.cs
         public void IncrementMoney(double money)
         {
             playerMoney += money;
+        }
+        public void MeltIce()
+        {
+            Console.WriteLine("Your leftover ice melts overnight.");
+            NumIceCubes = 0;
         }
     }
 }

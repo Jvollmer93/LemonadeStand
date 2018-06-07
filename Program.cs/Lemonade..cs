@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Program.cs
 {
-    class Lemonade
+    class Lemonade : Player
     {
         private int lemonsUsed;
         private int iceCubesUsed;
@@ -14,7 +14,7 @@ namespace Program.cs
         private int cupsInPitcher = 10;
         private int cupCount = 0;
         private double pricePerCup;
-        
+
         public int CupCount
         {
             get { return cupCount; }
@@ -85,7 +85,7 @@ namespace Program.cs
             do
             {
                 Console.WriteLine("How much would you like to charge per cup of lemonade today? $.$$");
-                userPrice = Console.ReadLine();//to double
+                userPrice = Console.ReadLine();
             } while (!double.TryParse(userPrice, out x));
             PricePerCup = Convert.ToDouble(userPrice);
         }

@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace Program.cs
 {
-    class Weather
+    class Weather : Game
     {
         private int temperature;
         private string weatherForecast;
         private int forecastValue;
-        private string[] forecastArray = { "Cloudy", "Sunny", "Raining", "Snowing", "Partly Cloudy", "Storming" };
-        Random rnd = new Random();
+        private string[] forecastArray = { "Cloudy", "Sunny", "Raining", "Snowing", "Partly Cloudy", "Storming" }; 
+       
+        public string[] ForeCastArray
+        {
+            get { return forecastArray; }
+            set { forecastArray = value; }
+        }
         public int Temperature
         {
             get { return temperature; }
@@ -30,18 +35,19 @@ namespace Program.cs
         }
         public int GetTemperature()
         {
+            Random rnd = new Random();
             temperature = rnd.Next(25, 100);
             return temperature;
         }
-        public string GetWeatherForecast()
+        public void GetWeatherForecast()
         {
+            Random rnd = new Random();
             int randomNumber = rnd.Next(0, 6);
             weatherForecast = forecastArray[randomNumber];
             if ((weatherForecast == "Snowing")&&(temperature > 32))
             {
                 GetWeatherForecast();
             }
-            return weatherForecast;
         }
         public void DisplayTemperature()
         {
@@ -51,7 +57,7 @@ namespace Program.cs
         {
             Console.WriteLine("It is " + weatherForecast + " outside today!");
         }
-        public void GiveForecastValue()
+        public int GiveForecastValue()
         {
             if (WeatherForecast == "Cloudy")
             {
@@ -77,6 +83,7 @@ namespace Program.cs
             {
                 ForecastValue = 5;
             }
+            return ForecastValue;
         }
     }
 }

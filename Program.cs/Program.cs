@@ -10,66 +10,40 @@ namespace Program.cs
     {
         static void Main(string[] args)
         {
-            Game game = new Game();
-            game.DetermineDays();
-
             Player player = new Player();
             player.GetName();
-
-            Inventory inventory = new Inventory();
-            inventory.PlayerMoney = player.StartingMoney;
+            Game game = new Game();
+            game.DetermineDays();
+            player.GetInitialMoney();
 
             for (int i = 0; i < game.Days; i++)
             {
-                Weather weather = new Weather();
-                weather.GetTemperature();
-                weather.GetWeatherForecast();
-                weather.DisplayTemperature();
-                weather.GiveForecastValue();
-                weather.DisplayForecast();
-
-                inventory.DisplayInventory();
-                inventory.BuyLemons();
-                inventory.BuyIce();
-                inventory.BuySugar();
-                inventory.BuyCups();
-                inventory.DisplayInventory();// second time around, random money being taken from user.
-
-                Lemonade lemonade = new Lemonade();
-                lemonade.HowManyLemons();
-                lemonade.HowMuchIce();
-                lemonade.HowMuchSugar();
-                lemonade.ChoosePricePerCup();
-
-                inventory.DecrementLemons(lemonade.LemonsUsed);
-                inventory.DecrementSugar(lemonade.SugarUsed);
-                for (int j = 0; j < 100; j++)
+                int[] weather = game.GetWeather();
+                game.DisplayWeather();
+                player.BuyInventoryPrompt();
+                player.MakeLemonade();
+                player.MakePitcher();
+                for (int j = 0; j < 5; j++)
                 {
-                    Customer customer = new Customer();
-                    customer.DetermineWillingness(customer.CustomerSatisfaction, weather.Temperature, weather.ForecastValue);
-                    if (customer.DecideIfBuying())
+                    game.NextCustomer();
+                    game.GetCustomerWillingness(weather[0], weather[1]);// pass in satisfaction, price
+                    if ((game.CustomerDecideIfBuying())&&(player.CheckStock()))
                     {
-                        lemonade.IncrementCupCount();
-                        if (inventory.MakeSureNotOutOfStock())
+                        player.SellCup();
+                        if (player.CheckPitcher()&&player.CheckProduct())
                         {
-                            inventory.DecrementCups();
-                            inventory.IncrementMoney(lemonade.PricePerCup);
-                            inventory.DecrementIceCubes(lemonade.IceCubesUsed);
-                            if (lemonade.EmptyPitcher()&&lemonade.HaveEnoughProduct(inventory.NumLemons, inventory.NumSugar))
-                            {
-                                inventory.DecrementLemons(lemonade.LemonsUsed);
-                                inventory.DecrementSugar(lemonade.SugarUsed);
-                            }
-                        }
-                        else
-                        {
-                            inventory.OutOfStockPrompt();
+                            player.MakePitcher();
                         }
                     }
-                }
+                    else if(!player.CheckStock())
+                    {
+                        player.OutOfStock();
+                    }                }
+                player.EndOfDayMeltIce();
             }
         }
     }
 }
 //todo satisfaction, price relevent to cups purchased
+//end of day, ice melts
 //after, multiple players.
