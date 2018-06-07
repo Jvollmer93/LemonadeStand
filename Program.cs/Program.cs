@@ -16,10 +16,18 @@ namespace Program.cs
             game.DetermineDays();
             player.GetInitialMoney();
 
+            for(int i = 0; i < game.Days; i++)
+            {
+                game.GetProjectedWeather(i);
+            }
+            game.DisplayWeatherList();
+            
+
             for (int i = 0; i < game.Days; i++)
             {
                 int[] weather = game.GetWeather();
-                game.DisplayWeather();
+
+                //game.DisplayWeather();
                 player.BuyInventoryPrompt();
                 player.MakeLemonade();
                 player.MakePitcher();
@@ -27,23 +35,25 @@ namespace Program.cs
                 {
                     game.NextCustomer();
                     game.GetCustomerWillingness(weather[0], weather[1]);// pass in satisfaction, price
-                    if ((game.CustomerDecideIfBuying())&&(player.CheckStock()))
+                    if ((game.CustomerDecideIfBuying()) && (player.CheckStock()))
                     {
                         player.SellCup();
-                        if (player.CheckPitcher()&&player.CheckProduct())
+                        if (player.CheckPitcher() && player.CheckProduct())
                         {
                             player.MakePitcher();
                         }
                     }
-                    else if(!player.CheckStock())
+                    else if (!player.CheckStock())
                     {
                         player.OutOfStock();
-                    }                }
+                    }
+                }
                 player.EndOfDayMeltIce();
             }
         }
     }
 }
 //todo satisfaction, price relevent to cups purchased
-//end of day, ice melts
-//after, multiple players.
+//after, multiple players. last
+//list inventory
+//weekly forecast, predicted forecast/actual forecast

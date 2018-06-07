@@ -104,7 +104,7 @@ namespace Program.cs
         }
         public bool HaveEnoughProduct(int lemons, int sugar)
         {
-            if(((lemonsUsed-lemons)>0)&&((sugarUsed-sugar)>0))
+            if (((lemonsUsed - lemons) > 0) && ((sugarUsed - sugar) > 0))
             {
                 return true;
             }

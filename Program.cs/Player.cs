@@ -13,7 +13,7 @@ namespace Program.cs
 
         public Inventory inventory = new Inventory();
         public Lemonade lemonade;
-        
+
         public string Name
         {
             get { return name; }

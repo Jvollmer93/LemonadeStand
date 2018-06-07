@@ -41,6 +41,7 @@ namespace Program.cs
         }
         public void BuyLemons()
         {
+            numLemons = 0;
             int x;
             string buyLemonsString;
             do
@@ -53,6 +54,7 @@ namespace Program.cs
         }
         public void BuySugar()
         {
+            numSugar = 0;
             int x;
             string buySugarString;
             do
@@ -65,6 +67,7 @@ namespace Program.cs
         }
         public void BuyIce()
         {
+            numIceCubes = 0;
             int x;
             string buyIceString;
             do
@@ -77,6 +80,7 @@ namespace Program.cs
         }
         public void BuyCups()
         {
+            NumCups = 0;
             int x;
             string buyCupsString;
             do
@@ -96,7 +100,7 @@ namespace Program.cs
         }
         public bool MakeSureNotOutOfStock()
         {
-            if((numCups>0)&&(numSugar>0)&&(numLemons>0)&&(numIceCubes>0))
+            if ((numCups > 0) && (numSugar > 0) && (numLemons > 0) && (numIceCubes > 0))
             {
                 return true;
             }

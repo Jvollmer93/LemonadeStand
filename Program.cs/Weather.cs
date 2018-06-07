@@ -11,8 +11,8 @@ namespace Program.cs
         private int temperature;
         private string weatherForecast;
         private int forecastValue;
-        private string[] forecastArray = { "Cloudy", "Sunny", "Raining", "Snowing", "Partly Cloudy", "Storming" }; 
-       
+        private string[] forecastArray = { "Cloudy", "Sunny", "Raining", "Snowing", "Partly Cloudy", "Storming" };
+
         public string[] ForeCastArray
         {
             get { return forecastArray; }
@@ -44,18 +44,18 @@ namespace Program.cs
             Random rnd = new Random();
             int randomNumber = rnd.Next(0, 6);
             weatherForecast = forecastArray[randomNumber];
-            if ((weatherForecast == "Snowing")&&(temperature > 32))
+            if ((weatherForecast == "Snowing") && (temperature > 32))
             {
                 GetWeatherForecast();
             }
         }
         public void DisplayTemperature()
         {
-            Console.WriteLine("It is " + temperature + " degrees out today!");
+            Console.WriteLine("It is " + Temperature + " degrees out today!");
         }
         public void DisplayForecast()
         {
-            Console.WriteLine("It is " + weatherForecast + " outside today!");
+            Console.WriteLine("It is " + WeatherForecast + " outside today!");
         }
         public int GiveForecastValue()
         {
