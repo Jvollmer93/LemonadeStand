@@ -27,14 +27,13 @@ namespace Program.cs
             {
                 int[] weather = game.GetWeather();
 
-                //game.DisplayWeather();
                 player.BuyInventoryPrompt();
-                player.MakeLemonade();
+                double price = player.MakeLemonade();
                 player.MakePitcher();
                 for (int j = 0; j < 5; j++)
                 {
                     game.NextCustomer();
-                    game.GetCustomerWillingness(weather[0], weather[1]);// pass in satisfaction, price
+                    game.GetCustomerWillingness(weather[0], weather[1], price);
                     if ((game.CustomerDecideIfBuying()) && (player.CheckStock()))
                     {
                         player.SellCup();

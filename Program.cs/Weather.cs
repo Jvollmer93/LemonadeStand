@@ -13,6 +13,16 @@ namespace Program.cs
         private int forecastValue;
         private string[] forecastArray = { "Cloudy", "Sunny", "Raining", "Snowing", "Partly Cloudy", "Storming" };
 
+        public Weather()
+        {
+
+        }
+        public Weather(int temperature, string weatherForecast)
+        {
+            this.temperature = temperature;
+            this.weatherForecast = weatherForecast;
+        }
+
         public string[] ForeCastArray
         {
             get { return forecastArray; }

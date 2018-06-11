@@ -78,7 +78,7 @@ namespace Program.cs
             } while (!(int.TryParse(iceUsedString, out x)));
             iceCubesUsed = Int32.Parse(iceUsedString);
         }
-        public void ChoosePricePerCup()
+        public double ChoosePricePerCup()
         {
             double x;
             string userPrice;
@@ -88,6 +88,7 @@ namespace Program.cs
                 userPrice = Console.ReadLine();
             } while (!double.TryParse(userPrice, out x));
             PricePerCup = Convert.ToDouble(userPrice);
+            return PricePerCup;
         }
         public void IncrementCupCount()
         {

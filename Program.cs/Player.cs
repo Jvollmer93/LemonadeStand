@@ -43,13 +43,13 @@ namespace Program.cs
             inventory.DisplayInventory();// second time around, random money being taken from user.
         }
 
-        public void MakeLemonade()
+        public double MakeLemonade()
         {
             lemonade = new Lemonade();
             lemonade.HowManyLemons();
             lemonade.HowMuchIce();
             lemonade.HowMuchSugar();
-            lemonade.ChoosePricePerCup();
+            return lemonade.ChoosePricePerCup();
         }
         public void MakePitcher()
         {
