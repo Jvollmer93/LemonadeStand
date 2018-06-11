@@ -22,7 +22,6 @@ namespace Program.cs
             }
             game.DisplayWeatherList();
             
-
             for (int i = 0; i < game.Days; i++)
             {
                 int[] weather = game.GetWeather();
@@ -52,7 +51,3 @@ namespace Program.cs
         }
     }
 }
-//todo satisfaction, price relevent to cups purchased
-//after, multiple players. last
-//list inventory
-//weekly forecast, predicted forecast/actual forecast

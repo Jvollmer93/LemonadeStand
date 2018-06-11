@@ -32,12 +32,10 @@ namespace Program.cs
             Console.Clear();
             return days;
         }
-        public void GetProjectedWeather(int day)//call from program, arguments game.day, within loop days
+        public void GetProjectedWeather(int day)
         {
             Weather weather = new Weather();
-            //weatherList.Add(day, weather.GetTemperature());
             weatherList.Add(new Weather(weather.Temperature, weather.WeatherForecast));
-            //list for forecast for entire game time
         }
         public void DisplayWeatherList()
         {

@@ -41,7 +41,6 @@ namespace Program.cs
         }
         public void BuyLemons()
         {
-            numLemons = 0;
             int x;
             string buyLemonsString;
             do
@@ -50,11 +49,10 @@ namespace Program.cs
                 buyLemonsString = Console.ReadLine();
             } while (!(int.TryParse(buyLemonsString, out x)));
             numLemons += Int32.Parse(buyLemonsString);
-            playerMoney -= (numLemons * .05);
+            playerMoney -= (Int32.Parse(buyLemonsString) * .05);
         }
         public void BuySugar()
         {
-            numSugar = 0;
             int x;
             string buySugarString;
             do
@@ -63,11 +61,10 @@ namespace Program.cs
                 buySugarString = Console.ReadLine();
             } while (!(int.TryParse(buySugarString, out x)));
             numSugar += Int32.Parse(buySugarString);
-            playerMoney -= (numSugar * .08);
+            playerMoney -= (Int32.Parse(buySugarString) * .08);
         }
         public void BuyIce()
         {
-            numIceCubes = 0;
             int x;
             string buyIceString;
             do
@@ -76,11 +73,10 @@ namespace Program.cs
                 buyIceString = Console.ReadLine();
             } while (!(int.TryParse(buyIceString, out x)));
             numIceCubes += Int32.Parse(buyIceString);
-            playerMoney -= (numIceCubes * .01);
+            playerMoney -= (Int32.Parse(buyIceString) * .01);
         }
         public void BuyCups()
         {
-            NumCups = 0;
             int x;
             string buyCupsString;
             do
@@ -89,7 +85,7 @@ namespace Program.cs
                 buyCupsString = Console.ReadLine();
             } while (!(int.TryParse(buyCupsString, out x)));
             numCups += Int32.Parse(buyCupsString);
-            playerMoney -= (numCups * .03);
+            playerMoney -= (Int32.Parse(buyCupsString) * .03);
         }
         public void DisplayInventory()
         {
