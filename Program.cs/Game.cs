@@ -10,6 +10,7 @@ namespace Program.cs
     {
         private int days;
         Customer customer = new Customer();
+
         public int Days
         {
             get { return days; }

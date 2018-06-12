@@ -11,7 +11,6 @@ namespace Program.cs
         private string name;
         private double startingMoney = 20.00;
         private double runningTotal;
-
         public Inventory inventory = new Inventory();
         public Lemonade lemonade;
 

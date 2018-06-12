@@ -15,6 +15,7 @@ namespace Program.cs
         private double playerMoney;
         private double spentToday;
         private double totalSpent;
+
         public int NumLemons
         {
             get { return numLemons; }

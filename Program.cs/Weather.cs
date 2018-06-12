@@ -12,21 +12,10 @@ namespace Program.cs
         private string weatherForecast;
         private int forecastValue;
         private string[] forecastArray = { "Cloudy", "Sunny", "Raining", "Snowing", "Partly Cloudy", "Storming" };
-
+        Random rnd = new Random();
         public Weather()
         {
 
-        }
-        public Weather(int temperature, string weatherForecast)
-        {
-            this.Temperature = Temperature;
-            this.WeatherForecast = WeatherForecast;
-        }
-
-        public string[] ForeCastArray
-        {
-            get { return forecastArray; }
-            set { forecastArray = value; }
         }
         public int Temperature
         {
@@ -44,14 +33,12 @@ namespace Program.cs
             set { forecastValue = value; }
         }
         public int GetTemperature()
-        {
-            Random rnd = new Random();
+        { 
             temperature = rnd.Next(20, 100);
             return temperature;
         }
         public void GetWeatherForecast()
-        {
-            Random rnd = new Random();
+        { 
             int randomNumber = rnd.Next(0, 6);
             weatherForecast = forecastArray[randomNumber];
             if ((weatherForecast == "Snowing") && (temperature > 32))

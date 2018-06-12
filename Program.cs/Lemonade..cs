@@ -14,7 +14,6 @@ namespace Program.cs
         private int cupsInPitcher = 10;
         private int cupCount = 0;
         private int pitcherCount = 0;
-        private int runningTotal;
         private double pricePerCup;
 
         public int CupCount
@@ -133,10 +132,6 @@ namespace Program.cs
         public int GetCupCount()
         {
             return cupCount;
-        }
-        public int GetRunningTotal()
-        {
-            return runningTotal;
         }
     }
 }
