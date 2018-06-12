@@ -10,18 +10,19 @@ namespace Program.cs
     {
         static void Main(string[] args)
         {
-            Player player = new Player();
-            player.GetName();
             Game game = new Game();
+            Player player = new Player();
+            game.DisplayRules();
+            player.GetName();            
             game.DetermineDays();
             player.GetInitialMoney();
 
-            for(int i = 0; i < game.Days; i++)
-            {
-                game.GetProjectedWeather(i);
-            }
-            game.DisplayWeatherList();
-            
+            //for(int i = 0; i < game.Days; i++)
+            //{
+            //    game.GetProjectedWeather(i);
+            //}
+            //game.DisplayWeatherList();
+
             for (int i = 0; i < game.Days; i++)
             {
                 int[] weather = game.GetWeather();
@@ -29,7 +30,7 @@ namespace Program.cs
                 player.BuyInventoryPrompt();
                 double price = player.MakeLemonade();
                 player.MakePitcher();
-                for (int j = 0; j < 5; j++)
+                for (int j = 0; j < 20; j++)
                 {
                     game.NextCustomer();
                     game.GetCustomerWillingness(weather[0], weather[1], price);
@@ -46,6 +47,8 @@ namespace Program.cs
                         player.OutOfStock();
                     }
                 }
+                player.GetCupsSoldOneDay();
+                player.RunningTotal();
                 player.EndOfDayMeltIce();
             }
         }

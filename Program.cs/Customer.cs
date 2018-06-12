@@ -21,14 +21,7 @@ namespace Program.cs
         public void DetermineWillingness(int temperature, int forecastValue, double price)
         {
             double priceValue;
-            if((price - .25) < 0)
-            {
-                priceValue = 100;
-            }
-            else
-            {
-                priceValue = 100 - (price - .25);
-            }
+            priceValue = 100 - price;
             willingnessToBuy = (temperature + forecastValue + priceValue) / 3;
         }
         public bool DecideIfBuying()
@@ -36,7 +29,7 @@ namespace Program.cs
             int randomNumber = rnd.Next(1, 101);
             if (randomNumber <= WillingnessToBuy)
             {
-                Console.WriteLine("A customer bought a cup of lemonade");
+                Console.WriteLine("A customer bought a cup of lemonade.");
                 Console.ReadLine();
                 return true;
             }

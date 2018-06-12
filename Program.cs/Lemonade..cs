@@ -13,6 +13,8 @@ namespace Program.cs
         private int sugarUsed;
         private int cupsInPitcher = 10;
         private int cupCount = 0;
+        private int pitcherCount = 0;
+        private int runningTotal;
         private double pricePerCup;
 
         public int CupCount
@@ -84,9 +86,12 @@ namespace Program.cs
             string userPrice;
             do
             {
-                Console.WriteLine("How much would you like to charge per cup of lemonade today? $.$$");
-                userPrice = Console.ReadLine();
-            } while (!double.TryParse(userPrice, out x));
+                do
+                {
+                    Console.WriteLine("How much would you like to charge per cup of lemonade today? $0.01 - $1.00");
+                    userPrice = Console.ReadLine();
+                } while (!double.TryParse(userPrice, out x));
+            }while((Convert.ToDouble(userPrice) > 1)||(Convert.ToDouble(userPrice) <= 0));
             PricePerCup = Convert.ToDouble(userPrice);
             return PricePerCup;
         }
@@ -99,6 +104,7 @@ namespace Program.cs
             if (CupCount == CupsInPitcher)
             {
                 cupCount = 0;
+                pitcherCount++;
                 return true;
             }
             return false;
@@ -110,6 +116,18 @@ namespace Program.cs
                 return true;
             }
             return false;
+        }
+        public int GetPitcherCount()
+        {
+            return pitcherCount;
+        }
+        public int GetCupCount()
+        {
+            return cupCount;
+        }
+        public int GetRunningTotal()
+        {
+            return runningTotal;
         }
     }
 }

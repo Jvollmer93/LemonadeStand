@@ -13,7 +13,7 @@ namespace Program.cs
         private int numIceCubes;
         private int numCups;
         private double playerMoney;
-
+        private double totalSpent;
         public int NumLemons
         {
             get { return numLemons; }
@@ -39,6 +39,11 @@ namespace Program.cs
             get { return playerMoney; }
             set { playerMoney = value; }
         }
+        public double TotalSpent
+        {
+            get { return totalSpent; }
+            set { totalSpent = value; }
+        }
         public void BuyLemons()
         {
             int x;
@@ -50,6 +55,7 @@ namespace Program.cs
             } while (!(int.TryParse(buyLemonsString, out x)));
             numLemons += Int32.Parse(buyLemonsString);
             playerMoney -= (Int32.Parse(buyLemonsString) * .05);
+            totalSpent += (Int32.Parse(buyLemonsString) * .05);
         }
         public void BuySugar()
         {
@@ -62,6 +68,7 @@ namespace Program.cs
             } while (!(int.TryParse(buySugarString, out x)));
             numSugar += Int32.Parse(buySugarString);
             playerMoney -= (Int32.Parse(buySugarString) * .08);
+            totalSpent += (Int32.Parse(buySugarString) * .08);
         }
         public void BuyIce()
         {
@@ -74,6 +81,7 @@ namespace Program.cs
             } while (!(int.TryParse(buyIceString, out x)));
             numIceCubes += Int32.Parse(buyIceString);
             playerMoney -= (Int32.Parse(buyIceString) * .01);
+            totalSpent += (Int32.Parse(buyIceString) * .01);
         }
         public void BuyCups()
         {
@@ -86,11 +94,12 @@ namespace Program.cs
             } while (!(int.TryParse(buyCupsString, out x)));
             numCups += Int32.Parse(buyCupsString);
             playerMoney -= (Int32.Parse(buyCupsString) * .03);
+            totalSpent += (Int32.Parse(buyCupsString) * .03);
         }
         public void DisplayInventory()
         {
             Console.WriteLine("Sugar : " + numSugar + ", Ice : " + numIceCubes + ", Lemons : " + numLemons + ", Cups : " + numCups + ".");
-            Console.WriteLine("Player money remaining : " + playerMoney);
+            Console.WriteLine("Player money remaining : $" + playerMoney);
             Console.ReadLine();
             Console.Clear();
         }

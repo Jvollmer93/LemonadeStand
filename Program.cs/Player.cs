@@ -10,6 +10,7 @@ namespace Program.cs
     {
         private string name;
         private double startingMoney = 20.00;
+        private double runningTotal;
 
         public Inventory inventory = new Inventory();
         public Lemonade lemonade;
@@ -40,7 +41,7 @@ namespace Program.cs
             inventory.BuyIce();
             inventory.BuySugar();
             inventory.BuyCups();
-            inventory.DisplayInventory();// second time around, random money being taken from user.
+            inventory.DisplayInventory();
         }
 
         public double MakeLemonade()
@@ -82,6 +83,24 @@ namespace Program.cs
         public void EndOfDayMeltIce()
         {
             inventory.MeltIce();
+        }
+        public void GetCupsSoldOneDay()
+        {
+            double price = lemonade.PricePerCup;
+            int cupCount = lemonade.GetCupCount();
+            int pitcherCount = lemonade.GetPitcherCount();
+            int totalSold = cupCount + (pitcherCount * 10);
+            double sales = totalSold * price;
+            runningTotal += sales;
+            Console.WriteLine("Sold " + totalSold + " cups of lemonade today for $" + sales + " in sales!");
+        }
+        public void RunningTotal()
+        {
+            Console.WriteLine("Sales to date: $" + runningTotal);
+            Console.WriteLine("Total spent to date: $" + inventory.TotalSpent);
+            Console.WriteLine("Profit : $" + (runningTotal - inventory.TotalSpent));
+            Console.ReadLine();
+            Console.Clear();
         }
     }
 }

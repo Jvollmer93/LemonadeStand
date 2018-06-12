@@ -19,8 +19,8 @@ namespace Program.cs
         }
         public Weather(int temperature, string weatherForecast)
         {
-            this.temperature = temperature;
-            this.weatherForecast = weatherForecast;
+            this.Temperature = Temperature;
+            this.WeatherForecast = WeatherForecast;
         }
 
         public string[] ForeCastArray

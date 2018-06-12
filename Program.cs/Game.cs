@@ -16,6 +16,16 @@ namespace Program.cs
             get { return days; }
             set { days = value; }
         }
+        public void DisplayRules()
+        {
+            Console.WriteLine("Welcome to the Lemonade Stand game!"+"\r\n");
+            Console.WriteLine("The rules of the game are simple.. Everyday there will 20 customers that visit your stand, you will be shown the weather first, then you can decide on the inventory you buy and the recipe for the lemonade you make." + "\r\n");
+            Console.WriteLine("The probabilty of a customer buying your lemonade depends on the temperature, forecast, and how expensive you choose to make your lemonade." + "\r\n");
+            Console.WriteLine("Goodluck!");
+            Console.ReadLine();
+            Console.Clear();
+
+        }
         public int DetermineDays()
         {
             string daysString;
