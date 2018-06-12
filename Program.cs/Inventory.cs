@@ -13,6 +13,7 @@ namespace Program.cs
         private int numIceCubes;
         private int numCups;
         private double playerMoney;
+        private double spentToday;
         private double totalSpent;
         public int NumLemons
         {
@@ -44,6 +45,11 @@ namespace Program.cs
             get { return totalSpent; }
             set { totalSpent = value; }
         }
+        public double SpentToday
+        {
+            get { return spentToday; }
+            set { spentToday = value; }
+        }
         public void BuyLemons()
         {
             int x;
@@ -56,6 +62,7 @@ namespace Program.cs
             numLemons += Int32.Parse(buyLemonsString);
             playerMoney -= (Int32.Parse(buyLemonsString) * .05);
             totalSpent += (Int32.Parse(buyLemonsString) * .05);
+            spentToday += (Int32.Parse(buyLemonsString) * .05);
         }
         public void BuySugar()
         {
@@ -69,6 +76,7 @@ namespace Program.cs
             numSugar += Int32.Parse(buySugarString);
             playerMoney -= (Int32.Parse(buySugarString) * .08);
             totalSpent += (Int32.Parse(buySugarString) * .08);
+            spentToday += (Int32.Parse(buySugarString) * .08);
         }
         public void BuyIce()
         {
@@ -82,6 +90,7 @@ namespace Program.cs
             numIceCubes += Int32.Parse(buyIceString);
             playerMoney -= (Int32.Parse(buyIceString) * .01);
             totalSpent += (Int32.Parse(buyIceString) * .01);
+            spentToday += (Int32.Parse(buyIceString) * .01);
         }
         public void BuyCups()
         {
@@ -95,6 +104,7 @@ namespace Program.cs
             numCups += Int32.Parse(buyCupsString);
             playerMoney -= (Int32.Parse(buyCupsString) * .03);
             totalSpent += (Int32.Parse(buyCupsString) * .03);
+            spentToday += (Int32.Parse(buyCupsString) * .03);
         }
         public void DisplayInventory()
         {
@@ -140,6 +150,10 @@ namespace Program.cs
         {
             Console.WriteLine("Your leftover ice melts overnight.");
             NumIceCubes = 0;
+        }
+        public void ResetSpentToday()
+        {
+            spentToday = 0;
         }
     }
 }

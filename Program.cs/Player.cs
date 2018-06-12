@@ -93,12 +93,15 @@ namespace Program.cs
             double sales = totalSold * price;
             runningTotal += sales;
             Console.WriteLine("Sold " + totalSold + " cups of lemonade today for $" + sales + " in sales!");
+            Console.WriteLine("Total spent today: $" + inventory.SpentToday);
+            Console.WriteLine("Profit today: $" + (sales - inventory.SpentToday));
+            inventory.ResetSpentToday();
         }
         public void RunningTotal()
         {
             Console.WriteLine("Sales to date: $" + runningTotal);
             Console.WriteLine("Total spent to date: $" + inventory.TotalSpent);
-            Console.WriteLine("Profit : $" + (runningTotal - inventory.TotalSpent));
+            Console.WriteLine("Profit to date: $" + (runningTotal - inventory.TotalSpent));
             Console.ReadLine();
             Console.Clear();
         }

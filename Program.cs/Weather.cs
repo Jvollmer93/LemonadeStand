@@ -46,7 +46,7 @@ namespace Program.cs
         public int GetTemperature()
         {
             Random rnd = new Random();
-            temperature = rnd.Next(25, 100);
+            temperature = rnd.Next(20, 100);
             return temperature;
         }
         public void GetWeatherForecast()

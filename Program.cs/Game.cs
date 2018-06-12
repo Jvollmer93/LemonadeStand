@@ -10,7 +10,6 @@ namespace Program.cs
     {
         private int days;
         Customer customer = new Customer();
-        List<Weather> weatherList = new List<Weather>();
         public int Days
         {
             get { return days; }
@@ -41,21 +40,6 @@ namespace Program.cs
             days = Int32.Parse(daysString);
             Console.Clear();
             return days;
-        }
-        public void GetProjectedWeather(int day)
-        {
-            Weather weather = new Weather();
-            weatherList.Add(new Weather(weather.Temperature, weather.WeatherForecast));
-        }
-        public void DisplayWeatherList()
-        {
-            foreach (var i in weatherList)
-            {
-                Console.WriteLine(i);
-            }
-           // string combindedString = string.Join("\n", weatherList);
-            //Console.WriteLine(combindedString);
-           Console.ReadLine();
         }
         public int[] GetWeather()
         {

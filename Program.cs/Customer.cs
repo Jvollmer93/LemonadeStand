@@ -21,8 +21,8 @@ namespace Program.cs
         public void DetermineWillingness(int temperature, int forecastValue, double price)
         {
             double priceValue;
-            priceValue = 100 - price;
-            willingnessToBuy = (temperature + forecastValue + priceValue) / 3;
+            priceValue = 100 - (100 * price);
+            willingnessToBuy = ((temperature + forecastValue + priceValue) / 3) - 20;
         }
         public bool DecideIfBuying()
         {

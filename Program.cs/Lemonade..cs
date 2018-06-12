@@ -53,9 +53,12 @@ namespace Program.cs
             string lemonsUsedString;
             do
             {
-                Console.WriteLine("How many lemons would you like to use per pitcher today?");
-                lemonsUsedString = Console.ReadLine();
-            } while (!(int.TryParse(lemonsUsedString, out x)));
+                do
+                {
+                    Console.WriteLine("How many lemons would you like to use per pitcher today? At least 1.");
+                    lemonsUsedString = Console.ReadLine();
+                } while (!(int.TryParse(lemonsUsedString, out x)));
+            } while (Int32.Parse(lemonsUsedString) < 1);
             lemonsUsed = Int32.Parse(lemonsUsedString);
         }
         public void HowMuchSugar()
@@ -64,9 +67,12 @@ namespace Program.cs
             string sugarUsedString;
             do
             {
-                Console.WriteLine("How many cups of sugar would you like to use per pitcher today?");
-                sugarUsedString = Console.ReadLine();
-            } while (!(int.TryParse(sugarUsedString, out x)));
+                do
+                {
+                    Console.WriteLine("How many cups of sugar would you like to use per pitcher today? At least 1.");
+                    sugarUsedString = Console.ReadLine();
+                } while (!(int.TryParse(sugarUsedString, out x)));
+            } while (Int32.Parse(sugarUsedString) < 1);
             sugarUsed = Int32.Parse(sugarUsedString);
         }
         public void HowMuchIce()
@@ -75,9 +81,12 @@ namespace Program.cs
             string iceUsedString;
             do
             {
-                Console.WriteLine("How many ice cubes would you like to use per cup today?");
-                iceUsedString = Console.ReadLine();
-            } while (!(int.TryParse(iceUsedString, out x)));
+                do
+                {
+                    Console.WriteLine("How many ice cubes would you like to use per cup today? At least 1.");
+                    iceUsedString = Console.ReadLine();
+                } while (!(int.TryParse(iceUsedString, out x)));
+            } while (Int32.Parse(iceUsedString) < 1);
             iceCubesUsed = Int32.Parse(iceUsedString);
         }
         public double ChoosePricePerCup()
@@ -111,7 +120,7 @@ namespace Program.cs
         }
         public bool HaveEnoughProduct(int lemons, int sugar)
         {
-            if (((lemonsUsed - lemons) > 0) && ((sugarUsed - sugar) > 0))
+            if (((lemons - lemonsUsed) > 0) && ((sugar - sugarUsed) > 0))
             {
                 return true;
             }

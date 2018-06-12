@@ -17,12 +17,6 @@ namespace Program.cs
             game.DetermineDays();
             player.GetInitialMoney();
 
-            //for(int i = 0; i < game.Days; i++)
-            //{
-            //    game.GetProjectedWeather(i);
-            //}
-            //game.DisplayWeatherList();
-
             for (int i = 0; i < game.Days; i++)
             {
                 int[] weather = game.GetWeather();
