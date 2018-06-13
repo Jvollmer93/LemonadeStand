@@ -39,12 +39,13 @@ namespace Program.cs
                     else if (!player.CheckStock())
                     {
                         player.OutOfStock();
-                    }
+                    } 
                 }
                 player.GetCupsSoldOneDay();
                 player.RunningTotal();
                 player.EndOfDayMeltIce();
             }
+            game.EndGame(player.GetRunningTotal());
         }
     }
 }

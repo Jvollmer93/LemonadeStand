@@ -24,7 +24,6 @@ namespace Program.cs
             Console.WriteLine("Goodluck!");
             Console.ReadLine();
             Console.Clear();
-
         }
         public int DetermineDays()
         {
@@ -64,6 +63,14 @@ namespace Program.cs
         public bool CustomerDecideIfBuying()
         {
             return customer.DecideIfBuying();
+        }
+        public void EndGame(double total)
+        {
+            Console.WriteLine("End of game!" + "\r\n");
+            Console.WriteLine("Total sales: $" + total);
+            Console.WriteLine("Total profit: $" + (total - 20));
+            Console.ReadLine();
+            Console.Clear();
         }
     }
 }

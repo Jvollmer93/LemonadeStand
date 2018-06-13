@@ -27,7 +27,7 @@ namespace Program.cs
         public void GetName()
         {
             Console.WriteLine("Please enter the player's name: ");
-            Name = Console.ReadLine();
+            name = Console.ReadLine();
         }
         public void GetInitialMoney()
         {
@@ -42,7 +42,6 @@ namespace Program.cs
             inventory.BuyCups();
             inventory.DisplayInventory();
         }
-
         public double MakeLemonade()
         {
             lemonade = new Lemonade();
@@ -63,23 +62,23 @@ namespace Program.cs
             inventory.IncrementMoney(lemonade.PricePerCup);
             inventory.DecrementIceCubes(lemonade.IceCubesUsed);
         }
-        public bool CheckStock()
+        public bool CheckStock()//ISP
         {
             return inventory.MakeSureNotOutOfStock();
         }
-        public bool CheckPitcher()
+        public bool CheckPitcher()//ISP
         {
             return lemonade.EmptyPitcher();
         }
-        public bool CheckProduct()
+        public bool CheckProduct()//ISP
         {
             return lemonade.HaveEnoughProduct(inventory.NumLemons, inventory.NumSugar);
         }
-        public void OutOfStock()
+        public void OutOfStock()//ISP
         {
             inventory.OutOfStockPrompt();
         }
-        public void EndOfDayMeltIce()
+        public void EndOfDayMeltIce()//ISP
         {
             inventory.MeltIce();
         }
@@ -103,6 +102,10 @@ namespace Program.cs
             Console.WriteLine("Profit to date: $" + (runningTotal - inventory.TotalSpent));
             Console.ReadLine();
             Console.Clear();
+        }
+        public double GetRunningTotal()
+        {
+            return runningTotal;
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Program.cs
 {
-    class Customer
+    class Customer //ex of single responsibilty principle. Customer class 1 job to find if customer is willing to/if they will buy lemonade
     {
         private double willingnessToBuy;
         Random rnd = new Random();
@@ -17,7 +17,6 @@ namespace Program.cs
             get { return willingnessToBuy; }
             set { willingnessToBuy = value; }
         }
-
         public void DetermineWillingness(int temperature, int forecastValue, double price)
         {
             double priceValue;
